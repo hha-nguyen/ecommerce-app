@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert, SafeAreaView, ScrollView } from 'react-native';
 import auth from '@react-native-firebase/auth';
-import { useRouter } from 'expo-router';
+import { Link, useRouter } from 'expo-router';
 
 const SignInScreen = () => {
   const router = useRouter();
@@ -30,8 +30,8 @@ const SignInScreen = () => {
       <ScrollView className='p-6'>
         <View className="flex-1">
           <Text className="text-5xl font-bold my-16">Sign In</Text>
-          <View className="relative w-100 h-20 pl-5 pt-8 mb-2 rounded-md p-1 bg-white border-none">
-            <Text className='absolute text-2xl pl-5 top-1/2 translate-y-1/2 color-gray-500'>Email</Text>
+          <View className="w-100 h-20 pl-5 mb-2 rounded-md p-1 bg-white border-none">
+            <Text className='text-xl color-gray-500'>Email</Text>
             <TextInput
               keyboardType="email-address"
               autoCapitalize="none"
@@ -41,15 +41,17 @@ const SignInScreen = () => {
             />                                                                                       
           </View>
           
-          <View className="border-2 rounded-md p-1 border-gray-300">
-            <Text className='text-sm color-gray-400'>Password</Text>
+          <View className="w-100 h-20 pl-5 mb-2 rounded-md p-1 bg-white border-none">
+            <Text className='text-xl color-gray-500'>Password</Text>
             <TextInput
-              placeholder="Password"
               secureTextEntry
               value={password}
               onChangeText={setPassword}
             />
           </View>
+          <Link href={'/(auth)/reset-password'}>
+              Forgot Password?
+          </Link>
           <Button title="Sign In" onPress={handleSignIn} />
           <Button title="Sign Up" onPress={() => router.push('/sign-up')} />
 

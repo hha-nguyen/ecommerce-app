@@ -10,7 +10,7 @@ const Welcome = () => {
 
   return (
     <SafeAreaView className="h-full flex-1">
-      <Redirect href="/sign-in" />
+      <Redirect href="/sign-up" />
     </SafeAreaView>
   );
 };

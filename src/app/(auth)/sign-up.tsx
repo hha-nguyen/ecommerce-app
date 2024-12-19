@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert, SafeAreaView, ScrollView } from 'react-native';
 import auth from '@react-native-firebase/auth';
+import { Link } from 'expo-router';
 
 const SignUpScreen = () => {
     const [name, setName] = useState('');
@@ -26,33 +27,33 @@ const SignUpScreen = () => {
 
 return (
     <SafeAreaView className="flex-1">
-        <ScrollView>
-          
+        <ScrollView className='p-6'>
           <View className="flex-1">
-              <Text style={styles.title}>Sign Up</Text>
+              <Text className="text-5xl font-bold my-16">Sign Up</Text>
+              <View className="w-100 h-20 pl-5 mb-2 rounded-md p-1 bg-white border-none">
+                <Text className='text-xl color-gray-500'>Email</Text>
+                <TextInput
+                  keyboardType="email-address"
+                  autoCapitalize="none"
+                  value={email}
+                  onChangeText={setEmail}
+                  className="color-black text-xl"
+                />                                                                                       
+              </View>
+              
+              <View className="w-100 h-20 pl-5 mb-2 rounded-md p-1 bg-white border-none">
+                <Text className='text-xl color-gray-500'>Password</Text>
+                <TextInput
+                  secureTextEntry
+                  value={password}
+                  onChangeText={setPassword}
+                />
+              </View>
 
-              <TextInput
-              style={styles.input}
-              placeholder="Email"
-              keyboardType="email-address"
-              autoCapitalize="none"
-              value={email}
-              onChangeText={setEmail}
-              />
-
-              <TextInput
-              style={styles.input}
-              placeholder="Password"
-              secureTextEntry
-              value={password}
-              onChangeText={setPassword}
-              />
+              <Link href={'/(auth)/sign-in'}>Already have an account</Link>
 
               <Button title="Sign Up" onPress={handleSignUp} />
 
-              <Text style={styles.forgotPassword} onPress={() => Alert.alert('Forgot Password')}>
-              Forgot Password?
-              </Text>
           </View>
         </ScrollView>
     </SafeAreaView>
