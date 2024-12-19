@@ -27,25 +27,29 @@ const SignInScreen = () => {
 
   return (
     <SafeAreaView className="flex-1">
-      <ScrollView>
-        <View className="flex justify-center p-16">
-          <Text className=''>Sign In</Text>
-
-          <TextInput
-            placeholder="Email"
-            keyboardType="email-address"
-            autoCapitalize="none"
-            value={email}
-            onChangeText={setEmail}
-          />
-
-          <TextInput
-            placeholder="Password"
-            secureTextEntry
-            value={password}
-            onChangeText={setPassword}
-          />
-
+      <ScrollView className='p-6'>
+        <View className="flex-1">
+          <Text className="text-5xl font-bold my-16">Sign In</Text>
+          <View className="relative w-100 h-20 pl-5 pt-8 mb-2 rounded-md p-1 bg-white border-none">
+            <Text className='absolute text-2xl pl-5 top-1/2 translate-y-1/2 color-gray-500'>Email</Text>
+            <TextInput
+              keyboardType="email-address"
+              autoCapitalize="none"
+              value={email}
+              onChangeText={setEmail}
+              className="color-black text-xl"
+            />                                                                                       
+          </View>
+          
+          <View className="border-2 rounded-md p-1 border-gray-300">
+            <Text className='text-sm color-gray-400'>Password</Text>
+            <TextInput
+              placeholder="Password"
+              secureTextEntry
+              value={password}
+              onChangeText={setPassword}
+            />
+          </View>
           <Button title="Sign In" onPress={handleSignIn} />
           <Button title="Sign Up" onPress={() => router.push('/sign-up')} />
 
@@ -59,33 +63,3 @@ const SignInScreen = () => {
 };
 
 export default SignInScreen;
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     padding: 16,
-//     backgroundColor: '#f8f9fa',
-//   },
-//   title: {
-//     fontSize: 24,
-//     fontWeight: 'bold',
-//     marginBottom: 24,
-//     textAlign: 'center',
-//     color: '#333',
-//   },
-//   input: {
-//     height: 40,
-//     borderColor: '#ccc',
-//     borderWidth: 1,
-//     borderRadius: 4,
-//     paddingHorizontal: 8,
-//     marginBottom: 16,
-//   },
-//   forgotPassword: {
-//     marginTop: 16,
-//     textAlign: 'center',
-//     color: '#007BFF',
-//     textDecorationLine: 'underline',
-//   },
-// });

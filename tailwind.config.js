@@ -4,7 +4,11 @@ module.exports = {
   content: ["./src/app/**/*.{js,jsx,ts,tsx}"],
   presets: [require("nativewind/preset")],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        scale_in: ''
+      }
+    },
   },
   plugins: [],
 }

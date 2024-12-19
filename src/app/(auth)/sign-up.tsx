@@ -28,7 +28,7 @@ return (
     <SafeAreaView className="flex-1">
         <ScrollView>
           
-          <View style={styles.container}>
+          <View className="flex-1">
               <Text style={styles.title}>Sign Up</Text>
 
               <TextInput
