@@ -40,3 +40,7 @@ yarn-error.*
 *.tsbuildinfo
 
 # @end expo-cli
+
+android/app/google-services.json
+
+google-services.json
